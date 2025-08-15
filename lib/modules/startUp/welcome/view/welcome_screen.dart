@@ -1,8 +1,6 @@
-import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/container_button.dart';
-import 'package:clothing_stor_e_connerce_app/core/components/widgets/image_handle_from_network_network.dart';
+import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/custom_text_button.dart';
 import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/welcome/controller/welcome_screen_controller.dart';
-import 'package:clothing_stor_e_connerce_app/modules/startUp/welcome/view/welcome_screen_images_shimmer_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +12,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (context,orientation)=> Scaffold(
-        body: Container(
+        body: Obx(()=>Container(
           width: Get.width,
           height: Get.height,
           color: secondaryColor,
@@ -31,7 +29,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                     width: Get.width < 350 ? 140 : 170,
                     height: 420,
                     decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: secondaryColor,
                       borderRadius: BorderRadius.circular(75),
                       image: DecorationImage(
                         image: AssetImage(AppImages.welcomeScreenImageOne),
@@ -48,6 +46,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                         width: Get.width < 350 ? 140 : 170,
                         height: 400 - (Get.width < 350 ? 140 : 170),
                         decoration: BoxDecoration(
+                          color: secondaryColor,
                           borderRadius: BorderRadius.circular(75),
                           image: DecorationImage(
                             image: AssetImage(AppImages.welcomeScreenImageTwo),
@@ -59,6 +58,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                         width: Get.width < 350 ? 140 : 170,
                         height: Get.width < 350 ? 140 : 170,
                         decoration: BoxDecoration(
+                          color: secondaryColor,
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: AssetImage(AppImages.welcomeScreenImageThree),
@@ -74,7 +74,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                 height: 15,
               ),
               Text(
-                  "The Fashion App That Makes You Look Best",
+                "The Fashion App That Makes You Look Best",
                 textAlign: TextAlign.center,
                 style: AppTextTheme.text24.copyWith(
                   overflow: TextOverflow.visible,
@@ -94,7 +94,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
               const SizedBox(
                 height: 15,
               ),
-              ContainerButton(
+              CustomTextButton(
                 width: 300,
                 onPressed: (){},
                 buttonText: "Lets's Get Started",
@@ -104,27 +104,31 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
               const SizedBox(
                 height: 15,
               ),
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                    text: "Already have an account? ",
-                    style: AppTextTheme.text16,
-                    children: [
-                      TextSpan(
+              MouseRegion(
+                onEnter: (_)=> controller.changeSignInTextHoverStatus(true),
+                onExit: (_)=> controller.changeSignInTextHoverStatus(false),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                      text: "Already have an account? ",
+                      style: AppTextTheme.text16,
+                      children: [
+                        TextSpan(
                           text: "Sign In",
                           style: AppTextTheme.text16.copyWith(
-                            color: primaryColor,
+                            color: controller.signInTextHoverStatus.value ? primaryColor.withValues(alpha: 0.9) : primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {},
-                      ),
-                    ]
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {},
+                        ),
+                      ]
                   ),
-              )
+                ),
+              ),
             ],
           ),
-        ),
+        ),),
       ),
     );
   }

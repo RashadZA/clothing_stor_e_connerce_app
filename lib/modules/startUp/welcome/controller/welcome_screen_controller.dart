@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 class WelcomeScreenController extends GetxController{
 
   RxBool screenDataProcessing = false.obs;
+  RxBool signInTextHoverStatus  = false.obs;
 
   @override
   void onInit() {
@@ -25,5 +26,9 @@ class WelcomeScreenController extends GetxController{
     //   precacheImage(const AssetImage(AppImages.welcomeScreenImageTwo), Get.context!),
     //   precacheImage(const AssetImage(AppImages.welcomeScreenImageThree), Get.context!),
     // ]);
+  }
+  Future<void> changeSignInTextHoverStatus(bool status) async {
+    signInTextHoverStatus.value = status;
+    update();
   }
 }
