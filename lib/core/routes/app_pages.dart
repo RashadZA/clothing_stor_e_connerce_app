@@ -1,6 +1,10 @@
 import 'package:clothing_stor_e_connerce_app/core/API/service/api_repositories.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/forgot_password_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/sign_in_screen_controller.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/sign_up_screen_controller.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/forgot_password.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/sign_in_screen.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/signup_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/onboarding/view/screen/on_boarding_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/onboarding/controller/on_boarding_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/splash/splash_screen.dart';
@@ -47,20 +51,20 @@ class AppPages {
             () => Get.lazyPut<SignInScreenController>(() => SignInScreenController()),
       ),
     ),
-    // GetPage(
-    //   name: Routes.forgotScreen,
-    //   page: () => const ForgotPasswordScreen(),
-    //   binding: BindingsBuilder(
-    //         () => Get.lazyPut<ForgotPasswordScreenController>(() => ForgotPasswordScreenController()),
-    //   ),
-    // ),
-    // GetPage(
-    //   name: Routes.signUpScreen,
-    //   page: () => const SignUpScreen(),
-    //   binding: BindingsBuilder(
-    //         () => Get.lazyPut<SignUpScreenController>(() => SignUpScreenController()),
-    //   ),
-    // ),
+    GetPage(
+      name: Routes.forgotScreen,
+      page: () => const ForgotPasswordScreen(),
+      binding: BindingsBuilder(
+            () => Get.lazyPut<ForgotPasswordScreenController>(() => ForgotPasswordScreenController()),
+      ),
+    ),
+    GetPage(
+      name: Routes.signUpScreen,
+      page: () => const SignUpScreen(),
+      binding: BindingsBuilder(
+            () => Get.lazyPut<SignUpScreenController>(() => SignUpScreenController()),
+      ),
+    ),
     // GetPage(
     //   name: Routes.mainScreen,
     //   page: () => const MainScreen(),
