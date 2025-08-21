@@ -55,7 +55,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                         ),
                       ),
                       Container(
-                        width: Get.width < 350 ? 140 : 170,
+                        width: Get.width < 350 ? 140 : 170 ,
                         height: Get.width < 350 ? 140 : 170,
                         decoration: BoxDecoration(
                           color: secondaryColor,
