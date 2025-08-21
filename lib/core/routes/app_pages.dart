@@ -1,4 +1,6 @@
 import 'package:clothing_stor_e_connerce_app/core/API/service/api_repositories.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/sign_in_screen_controller.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/sign_in_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/onboarding/view/screen/on_boarding_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/onboarding/controller/on_boarding_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/splash/splash_screen.dart';
@@ -38,13 +40,13 @@ class AppPages {
             () => Get.lazyPut<OnBoardingScreenController>(() => OnBoardingScreenController()),
       ),
     ),
-    // GetPage(
-    //   name: Routes.signInScreen,
-    //   page: () => const SignInScreen(),
-    //   binding: BindingsBuilder(
-    //         () => Get.lazyPut<SignInScreenController>(() => SignInScreenController()),
-    //   ),
-    // ),
+    GetPage(
+      name: Routes.signInScreen,
+      page: () => const SignInScreen(),
+      binding: BindingsBuilder(
+            () => Get.lazyPut<SignInScreenController>(() => SignInScreenController()),
+      ),
+    ),
     // GetPage(
     //   name: Routes.forgotScreen,
     //   page: () => const ForgotPasswordScreen(),

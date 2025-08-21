@@ -1,6 +1,7 @@
 part of 'design_utils.dart';
 
-const Color scaffoldBackgroundColor = Color(0xFFF9F9F9);
+const Color scaffoldBackgroundColor = Color(0xFFE3D4CA);
+// const Color scaffoldBackgroundColor = Color(0xFFF9F9F9);
 const Color scaffoldAppBarColor = Colors.white;
 
 const Color transparentColor = Colors.transparent;
@@ -39,7 +40,7 @@ const Color defaultBorderColorOne = Color(0xFF222222);
 
 const Color defaultCardColorOne = Color(0xFFFFFFFF);
 
-const Color gradientStartColor = Color(0xFFDB3022);
+const Color gradientStartColor = Color(0xFF704F38);
 Color gradientEndColor = gradientStartColor.withValues(alpha:0.5);
 
 const errorColor = Color(0xFF9B9B9B);
