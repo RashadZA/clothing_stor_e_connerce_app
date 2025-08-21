@@ -1,4 +1,6 @@
 import 'package:clothing_stor_e_connerce_app/core/API/service/api_repositories.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/onboarding/view/screen/on_boarding_screen.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/onboarding/controller/on_boarding_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/splash/splash_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/splash/splash_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/unknown/unknown_route_screen.dart';
@@ -27,6 +29,13 @@ class AppPages {
       page: () => const WelcomeScreen(),
       binding: BindingsBuilder(
             () => Get.lazyPut<WelcomeScreenController>(() => WelcomeScreenController()),
+      ),
+    ),
+    GetPage(
+      name: Routes.onBoardingScreen,
+      page: () => const OnBoardingScreen(),
+      binding: BindingsBuilder(
+            () => Get.lazyPut<OnBoardingScreenController>(() => OnBoardingScreenController()),
       ),
     ),
     // GetPage(

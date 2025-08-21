@@ -27,8 +27,19 @@ class WelcomeScreenController extends GetxController{
     //   precacheImage(const AssetImage(AppImages.welcomeScreenImageThree), Get.context!),
     // ]);
   }
+
+  Future<void> letsGetStartedButtonOnPressedMethod() async {
+    Get.offAllNamed(Routes.onBoardingScreen);
+    update();
+  }
+
   Future<void> changeSignInTextHoverStatus(bool status) async {
     signInTextHoverStatus.value = status;
+    update();
+  }
+
+  Future<void> signInButtonOnPressedMethod() async {
+    Get.offAllNamed(Routes.onBoardingScreen);
     update();
   }
 }

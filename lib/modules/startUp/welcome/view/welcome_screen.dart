@@ -1,4 +1,5 @@
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/custom_text_button.dart';
+import 'package:clothing_stor_e_connerce_app/core/routes/app_pages.dart';
 import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/welcome/controller/welcome_screen_controller.dart';
 import 'package:flutter/gestures.dart';
@@ -96,7 +97,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
               ),
               CustomTextButton(
                 width: 300,
-                onPressed: (){},
+                onPressed: ()=> controller.letsGetStartedButtonOnPressedMethod(),
                 buttonText: "Lets's Get Started",
                 buttonColor: greenColor,
                 isButtonIsTapped: false,
@@ -120,7 +121,7 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                             fontWeight: FontWeight.bold,
                           ),
                           recognizer: TapGestureRecognizer()
-                            ..onTap = () {},
+                            ..onTap = ()=> controller.signInButtonOnPressedMethod(),
                         ),
                       ]
                   ),
