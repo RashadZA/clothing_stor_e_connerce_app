@@ -1,3 +1,5 @@
+import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/icon_custom_button.dart';
+import 'package:clothing_stor_e_connerce_app/core/components/widgets/check_box_custom_widget.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/sign_up_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/core_button.dart';
@@ -15,124 +17,215 @@ class SignUpScreen extends GetWidget<SignUpScreenController> {
       backgroundColor: scaffoldBackgroundColor,
       body: OrientationBuilder(
         builder: (context, orientation) {
-          return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(defaultPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  const Icon(
+          return Obx(()=> SingleChildScrollView(
+            padding: const EdgeInsets.all(defaultPadding),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 40,
+                ),
+                Center(
+                  child: const Icon(
                     Icons.flutter_dash,
-                    size: 200,
+                    size: 120,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text("Sign Up"),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  CoreTextField(
-                    hintText: "Name",
-                    keyboardType: TextInputType.text,
-                    controller: controller.nameTextEditController,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CoreTextField(
-                    hintText: "Email",
-                    keyboardType: TextInputType.text,
-                    controller: controller.emailTextEditController,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CoreTextField(
-                    hintText: "Password",
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.done,
-                    controller: controller.passwordTextEditController,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CoreButton(
-                    onPressed: () => controller.alreadyHaveAnAccountOnPressedMethod(),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Already have an account",
-                          style: TextStyle(color: primaryTextColor),
-                        ),
-                        Icon(
-                          Icons.arrow_right_alt,
-                          color: redAccentColor,
-                        )
-                      ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text(
+                    "Create Account",
+                    textAlign: TextAlign.center,
+                    style: AppTextTheme.text24.copyWith(
+                        color: primaryColor,
+                        fontWeight: FontWeight.w600
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Fill your information below or register with your social account.",
+                  textAlign: TextAlign.center,
+                  style: AppTextTheme.text16.copyWith(
+                    color: primaryColor,
+                    fontWeight: FontWeight.w400,
+                    overflow: TextOverflow.visible,
                   ),
-                  CoreFlatButton(
-                    onPressed: ()=> controller.signUpOnPressedMethod(),
-                    text: "SIGN UP",
-                    isGradientBg: true,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Name",
+                  style: AppTextTheme.text18.copyWith(
+                      color: primaryColor,
+                      fontWeight: FontWeight.w600
                   ),
-                  const SizedBox(
-                    height: 100,
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                CoreTextField(
+                  hintText: "Name",
+                  keyboardType: TextInputType.text,
+                  controller: controller.nameTextEditController,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Email",
+                  style: AppTextTheme.text18.copyWith(
+                      color: primaryColor,
+                      fontWeight: FontWeight.w600
                   ),
-                  const Text("Or login with social account"),
-                  const SizedBox(
-                    height: 10,
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                CoreTextField(
+                  hintText: "Email",
+                  keyboardType: TextInputType.text,
+                  controller: controller.emailTextEditController,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Password",
+                  style: AppTextTheme.text18.copyWith(
+                      color: primaryColor,
+                      fontWeight: FontWeight.w600
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                CoreTextField(
+                  hintText: "Password",
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done,
+                  obscureText: controller.obscureTextStatus.value,
+                  controller: controller.passwordTextEditController,
+                  suffixIcon: CoreButton(
+                    onPressed: ()=> controller.passwordFieldObscureStatusChangeMethod(),
+                    child: Icon(
+                      controller.obscureTextStatus.value ? Icons.visibility_off : Icons.visibility,
+                      size: 20,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  spacing: 10,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CheckBoxCustomWidget(
+                      onPressed: () => controller.agreeWithTermAndConditionStatusChangeMethod(),
+                      isSelected: controller.agreeWithTermAndConditionStatus.value,
+                    ),
+                    Flexible(
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                            text: "Agree with ",
+                            style: AppTextTheme.text16.copyWith(
+                              // color: primaryColor,
+                              // fontWeight: FontWeight.w600,
+                              overflow: TextOverflow.visible,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "Terms & Condition",
+                                style: AppTextTheme.text16.copyWith(
+                                  color: primaryColor,
+                                  fontWeight: FontWeight.w600,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ]
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                CoreButton(
+                  onPressed: () => controller.alreadyHaveAnAccountOnPressedMethod(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      CoreButton(
-                        onPressed: (){},
-                        child: Container(
-                          height: 64,
-                          width: 92,
-                          decoration: BoxDecoration(
-                              color: whiteColor,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: const Icon(
-                            Icons.facebook,
-                            size: 40,
-                            color: Colors.blueAccent,
-                          ),
+                      Text(
+                        "Already have an account",
+                        style: AppTextTheme.text16.copyWith(
+                            color: primaryColor,
+                            fontWeight: FontWeight.w600
                         ),
                       ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      CoreButton(
-                        onPressed: (){},
-                        child: Container(
-                          height: 64,
-                          width: 92,
-                          decoration: BoxDecoration(
-                              color: whiteColor,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: const Icon(
-                            Icons.facebook,
-                            size: 40,
-                            color: Colors.blueAccent,
-                          ),
-                        ),
-                      ),
+                      Icon(
+                        Icons.arrow_right_alt,
+                        color: primaryColor,
+                      )
                     ],
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CoreFlatButton(
+                  onPressed: ()=> controller.signUpOnPressedMethod(),
+                  text: "SIGN UP",
+                  isGradientBg: true,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: Text(
+                      "Or login with social account",
+                    style: AppTextTheme.text16.copyWith(
+                        color: primaryColor,
+                        fontWeight: FontWeight.w600
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  spacing: 10,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IconCustomButton(
+                      onPressed: (){},
+                      iconData: Icons.facebook,
+                      iconColor: primaryColor,
+                      iconSize: 35,
+                      // backgroundColor: primaryColor,
+                    ),
+                    IconCustomButton(
+                      onPressed: (){},
+                      iconData: Icons.facebook,
+                      iconColor: primaryColor,
+                      iconSize: 35,
+                      // backgroundColor: primaryColor,
+                    ),
+                  ],
+                ),
+              ],
             ),
-          );
+          ),);
         },
       ),
     );

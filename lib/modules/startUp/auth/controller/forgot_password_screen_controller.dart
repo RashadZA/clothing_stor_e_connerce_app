@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:clothing_stor_e_connerce_app/core/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,12 @@ class ForgotPasswordScreenController extends GetxController {
   }
 
   Future<void> init() async {}
+
+
+  /// "Already have an account" Text button on pressed method
+  Future<void> alreadyHaveAnAccountOnPressedMethod() async {
+    Get.offNamed(Routes.signInScreen);
+  }
 
   Future<void> close() async {}
 

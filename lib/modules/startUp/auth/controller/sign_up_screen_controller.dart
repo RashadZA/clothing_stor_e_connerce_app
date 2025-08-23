@@ -10,6 +10,9 @@ class SignUpScreenController extends GetxController {
   final TextEditingController emailTextEditController = TextEditingController();
   final TextEditingController passwordTextEditController = TextEditingController();
 
+  RxBool obscureTextStatus = true.obs;
+  RxBool agreeWithTermAndConditionStatus = false.obs;
+
   @override
   void onInit() {
     init();
@@ -27,6 +30,15 @@ class SignUpScreenController extends GetxController {
   /// "Already have an account" Text button on pressed method
   Future<void> alreadyHaveAnAccountOnPressedMethod() async {
     Get.offNamed(Routes.signInScreen);
+  }
+
+  Future<void> passwordFieldObscureStatusChangeMethod() async {
+    obscureTextStatus.value = !obscureTextStatus.value;
+    update();
+  }
+  Future<void> agreeWithTermAndConditionStatusChangeMethod() async {
+    agreeWithTermAndConditionStatus.value = !agreeWithTermAndConditionStatus.value;
+    update();
   }
 
   Future<void> close() async {}

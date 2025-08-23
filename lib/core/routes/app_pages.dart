@@ -33,6 +33,8 @@ class AppPages {
     GetPage(
       name: Routes.welcomeScreen,
       page: () => const WelcomeScreen(),
+      transition: Transition.rightToLeft, // Open from right to left
+      transitionDuration: const Duration(milliseconds: 300),
       binding: BindingsBuilder(
             () => Get.lazyPut<WelcomeScreenController>(() => WelcomeScreenController()),
       ),
@@ -40,6 +42,8 @@ class AppPages {
     GetPage(
       name: Routes.onBoardingScreen,
       page: () => const OnBoardingScreen(),
+      transition: Transition.rightToLeft, // Open from right to left
+      transitionDuration: const Duration(milliseconds: 300),
       binding: BindingsBuilder(
             () => Get.lazyPut<OnBoardingScreenController>(() => OnBoardingScreenController()),
       ),
@@ -47,6 +51,8 @@ class AppPages {
     GetPage(
       name: Routes.signInScreen,
       page: () => const SignInScreen(),
+      transition: Transition.rightToLeft, // Open from right to left
+      transitionDuration: const Duration(milliseconds: 300),
       binding: BindingsBuilder(
             () => Get.lazyPut<SignInScreenController>(() => SignInScreenController()),
       ),
@@ -54,6 +60,8 @@ class AppPages {
     GetPage(
       name: Routes.forgotScreen,
       page: () => const ForgotPasswordScreen(),
+      transition: Transition.rightToLeft, // Open from right to left
+      transitionDuration: const Duration(milliseconds: 300),
       binding: BindingsBuilder(
             () => Get.lazyPut<ForgotPasswordScreenController>(() => ForgotPasswordScreenController()),
       ),
@@ -61,6 +69,8 @@ class AppPages {
     GetPage(
       name: Routes.signUpScreen,
       page: () => const SignUpScreen(),
+      transition: Transition.rightToLeft, // Open from right to left
+      transitionDuration: const Duration(milliseconds: 300),
       binding: BindingsBuilder(
             () => Get.lazyPut<SignUpScreenController>(() => SignUpScreenController()),
       ),

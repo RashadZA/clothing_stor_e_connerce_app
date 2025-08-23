@@ -1,5 +1,4 @@
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/core_button.dart';
-import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
 import 'package:flutter/material.dart';
 
 class IconCustomButton extends StatelessWidget {

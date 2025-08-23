@@ -70,7 +70,7 @@ class OnBoardingScreen extends GetWidget<OnBoardingScreenController> {
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 300),
                         width: controller.currentScreenIndex.value > 0 ? 100 : 0,
-                        child:  IconCustomButton(
+                        child: IconCustomButton(
                           onPressed: controller.currentScreenIndex.value > 0 ? controller.goToPreviousScreen : null,
                           iconData: Icons.arrow_back,
                           iconColor: whiteColor,

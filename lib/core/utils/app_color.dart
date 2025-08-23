@@ -2,7 +2,8 @@ part of 'design_utils.dart';
 
 const Color scaffoldBackgroundColor = Color(0xFFE3D4CA);
 // const Color scaffoldBackgroundColor = Color(0xFFF9F9F9);
-const Color scaffoldAppBarColor = Colors.white;
+const Color scaffoldAppBarColor = Color(0xFFE3D4CA);
+// const Color scaffoldAppBarColor = Colors.white;
 
 const Color transparentColor = Colors.transparent;
 

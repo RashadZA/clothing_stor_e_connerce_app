@@ -22,7 +22,7 @@ class SignInScreen extends GetWidget<SignInScreenController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 60,
+                  height: 40,
                 ),
                 Center(
                   child: const Icon(
@@ -48,14 +48,16 @@ class SignInScreen extends GetWidget<SignInScreenController> {
                 Center(
                   child: Text(
                     "Hi, Welcome back, you've been missed",
+                    textAlign: TextAlign.center,
                     style: AppTextTheme.text16.copyWith(
-                        color: primaryColor,
-                        fontWeight: FontWeight.w400
+                      color: primaryColor,
+                      fontWeight: FontWeight.w400,
+                      overflow: TextOverflow.visible,
                     ),
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Text(
                   "Email",
@@ -173,14 +175,15 @@ class SignInScreen extends GetWidget<SignInScreenController> {
                   children: [
                     CoreButton(
                       child: Container(
-                        height: 64,
-                        width: 92,
+                        height: 45,
+                        width: 55,
                         decoration: BoxDecoration(
                             color: whiteColor,
-                            borderRadius: BorderRadius.circular(15)),
+                            borderRadius: BorderRadius.circular(15),
+                        ),
                         child: const Icon(
                           Icons.facebook,
-                          size: 40,
+                          size: 35,
                           color: Colors.blueAccent,
                         ),
                       ),
@@ -190,14 +193,15 @@ class SignInScreen extends GetWidget<SignInScreenController> {
                     ),
                     CoreButton(
                       child: Container(
-                        height: 64,
-                        width: 92,
+                        height: 45,
+                        width: 55,
                         decoration: BoxDecoration(
                             color: whiteColor,
-                            borderRadius: BorderRadius.circular(15)),
+                            borderRadius: BorderRadius.circular(15),
+                        ),
                         child: const Icon(
                           Icons.facebook,
-                          size: 40,
+                          size: 35,
                           color: Colors.blueAccent,
                         ),
                       ),

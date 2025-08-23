@@ -1,5 +1,4 @@
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/custom_text_button.dart';
-import 'package:clothing_stor_e_connerce_app/core/routes/app_pages.dart';
 import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/welcome/controller/welcome_screen_controller.dart';
 import 'package:flutter/gestures.dart';
@@ -18,17 +17,17 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
           height: Get.height,
           color: secondaryColor,
           child: ListView(
-            padding: EdgeInsets.only(left: 15, right: 15,top: 0,bottom: 50),
+            padding: EdgeInsets.only(left: 15, right: 15,top: 0,bottom: 35),
             children: [
-              SizedBox(height: Get.height * 0.12,),
+              SizedBox(height: 50,),
               Row(
                 spacing: 15,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: Get.width < 350 ? 140 : 170,
-                    height: 420,
+                    width: (Get.width - 45) * 0.5,
+                    height: 400,
                     decoration: BoxDecoration(
                       color: secondaryColor,
                       borderRadius: BorderRadius.circular(75),
@@ -44,8 +43,8 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        width: Get.width < 350 ? 140 : 170,
-                        height: 400 - (Get.width < 350 ? 140 : 170),
+                        width: (Get.width - 45) * 0.5,
+                        height: 385 - ((Get.width - 45) * 0.5),
                         decoration: BoxDecoration(
                           color: secondaryColor,
                           borderRadius: BorderRadius.circular(75),
@@ -56,8 +55,8 @@ class WelcomeScreen extends GetWidget<WelcomeScreenController> {
                         ),
                       ),
                       Container(
-                        width: Get.width < 350 ? 140 : 170 ,
-                        height: Get.width < 350 ? 140 : 170,
+                        width: (Get.width - 45) * 0.5,
+                        height: (Get.width - 45) * 0.5,
                         decoration: BoxDecoration(
                           color: secondaryColor,
                           shape: BoxShape.circle,

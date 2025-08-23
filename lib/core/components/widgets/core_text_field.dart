@@ -28,6 +28,7 @@ class CoreTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatters;
+  final EdgeInsetsGeometry? contentPadding;
 
   const CoreTextField({
     super.key,
@@ -56,6 +57,7 @@ class CoreTextField extends StatelessWidget {
     this.hintTextColor,
     this.hintText,
     this.textInputAction = TextInputAction.next,
+    this.contentPadding,
   });
 
   static OutlineInputBorder focusedBorder = OutlineInputBorder(
@@ -118,8 +120,7 @@ class CoreTextField extends StatelessWidget {
               color: hintTextColor ?? secondaryTextColor,
             ),
             filled: true,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+            contentPadding: contentPadding ?? EdgeInsets.symmetric(horizontal: 16, vertical: prefixIcon == null && suffixIcon == null ? 12 : 8),
             fillColor: fillColor ?? coreTextFieldBackgroundColor,
             prefixIcon: prefixIcon != null
                 ? Icon(
