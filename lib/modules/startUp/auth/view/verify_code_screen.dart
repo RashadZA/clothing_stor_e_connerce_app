@@ -1,5 +1,6 @@
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/core_button.dart';
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/icon_custom_button.dart';
+import 'package:clothing_stor_e_connerce_app/core/routes/app_pages.dart';
 import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/core_flat_button.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/verify_code_screen_controller.dart';
@@ -112,7 +113,7 @@ class VerifyCodeScreen extends GetWidget<VerifyCodeScreenController> {
                 height: 10,
               ),
               CoreButton(
-                onPressed: () => controller.alreadyHaveAnAccountOnPressedMethod(),
+                onPressed: () => controller.signInOnPressedMethod(),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -134,7 +135,7 @@ class VerifyCodeScreen extends GetWidget<VerifyCodeScreenController> {
                 height: 15,
               ),
               CoreFlatButton(
-                onPressed: () => Get.back(),
+                onPressed: () => Get.toNamed(Routes.newPasswordScreen),
                 text: "SEND",
                 isGradientBg: true,
               ),

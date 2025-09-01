@@ -60,17 +60,8 @@ class SignUpScreen extends GetWidget<SignUpScreenController> {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "Name",
-                  style: AppTextTheme.text18.copyWith(
-                      color: primaryColor,
-                      fontWeight: FontWeight.w600
-                  ),
-                ),
-                const SizedBox(
-                  height: 2,
-                ),
                 CoreTextField(
+                  titleText: "Name",
                   hintText: "Name",
                   keyboardType: TextInputType.text,
                   controller: controller.nameTextEditController,
@@ -78,17 +69,8 @@ class SignUpScreen extends GetWidget<SignUpScreenController> {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "Email",
-                  style: AppTextTheme.text18.copyWith(
-                      color: primaryColor,
-                      fontWeight: FontWeight.w600
-                  ),
-                ),
-                const SizedBox(
-                  height: 2,
-                ),
                 CoreTextField(
+                  titleText: "Email",
                   hintText: "Email",
                   keyboardType: TextInputType.text,
                   controller: controller.emailTextEditController,
@@ -96,18 +78,9 @@ class SignUpScreen extends GetWidget<SignUpScreenController> {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "Password",
-                  style: AppTextTheme.text18.copyWith(
-                      color: primaryColor,
-                      fontWeight: FontWeight.w600
-                  ),
-                ),
-                const SizedBox(
-                  height: 2,
-                ),
                 CoreTextField(
                   hintText: "Password",
+                  titleText: "Password",
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.done,
                   obscureText: controller.obscureTextStatus.value,

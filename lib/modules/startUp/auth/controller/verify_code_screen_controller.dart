@@ -48,8 +48,8 @@ class VerifyCodeScreenController extends GetxController {
         backgroundColor: Colors.green,
         colorText: Colors.white,
       );
-      // Navigate to next screen
-      // Get.offAll(() => NextScreen());
+      /// Navigate to next screen
+      Get.toNamed(Routes.newPasswordScreen);
     } else {
       Get.snackbar(
         'Error',
@@ -73,8 +73,8 @@ class VerifyCodeScreenController extends GetxController {
   }
 
 
-  /// "Already have an account" Text button on pressed method
-  Future<void> alreadyHaveAnAccountOnPressedMethod() async {
+  /// Sign In Text button on pressed method
+  Future<void> signInOnPressedMethod() async {
     Get.offNamed(Routes.signInScreen);
   }
 

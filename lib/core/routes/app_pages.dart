@@ -1,9 +1,11 @@
 import 'package:clothing_stor_e_connerce_app/core/API/service/api_repositories.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/forgot_password_screen_controller.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/new_password_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/sign_in_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/sign_up_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/verify_code_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/forgot_password.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/new_password_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/sign_in_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/signup_screen.dart';
 import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/view/verify_code_screen.dart';
@@ -84,6 +86,15 @@ class AppPages {
       transitionDuration: const Duration(milliseconds: 300),
       binding: BindingsBuilder(
             () => Get.lazyPut<VerifyCodeScreenController>(() => VerifyCodeScreenController()),
+      ),
+    ),
+    GetPage(
+      name: Routes.newPasswordScreen,
+      page: () => const NewPasswordScreen(),
+      transition: Transition.rightToLeft, // Open from right to left
+      transitionDuration: const Duration(milliseconds: 300),
+      binding: BindingsBuilder(
+            () => Get.lazyPut<NewPasswordScreenController>(() => NewPasswordScreenController()),
       ),
     ),
     // GetPage(

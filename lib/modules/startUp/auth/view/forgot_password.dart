@@ -62,18 +62,9 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordScreenController> {
               const SizedBox(
                 height: 10,
               ),
-              Text(
-                "Email",
-                style: AppTextTheme.text18.copyWith(
-                    color: primaryColor,
-                    fontWeight: FontWeight.w600
-                ),
-              ),
-              const SizedBox(
-                height: 2,
-              ),
               CoreTextField(
                 hintText: "Email",
+                titleText: "Email",
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
                 controller: controller.emailTextEditController,

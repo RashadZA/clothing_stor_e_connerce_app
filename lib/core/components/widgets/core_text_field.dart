@@ -12,6 +12,8 @@ class CoreTextField extends StatelessWidget {
   final Color? fillColor;
   final Color? textColor;
   final String? helperText;
+  final String titleText;
+  final TextStyle? titleTextStyle;
   final FocusNode? focusNode;
   final Widget? suffixIcon;
   final Color? prefixIconColor;
@@ -34,6 +36,8 @@ class CoreTextField extends StatelessWidget {
     super.key,
     this.readOnly = false,
     this.obscureText = false,
+    required this.titleText,
+    this.titleTextStyle,
     this.labelText,
     this.prefixIcon,
     this.helperText,
@@ -83,65 +87,81 @@ class CoreTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
-      child: Material(
-        elevation: 10,
-        shadowColor: coreTextFieldShadowColor,
-        surfaceTintColor: coreTextFieldShadowColor,
-        color: coreTextFieldBackgroundColor,
-        child: TextFormField(
-          onTap: onTap,
-          cursorHeight: 20,
-          autocorrect: false,
-          minLines: minLines,
-          readOnly: readOnly,
-          maxLines: maxLines,
-          focusNode: focusNode,
-          validator: validator,
-          controller: controller,
-          obscureText: obscureText,
-          onFieldSubmitted: onSubmit,
-          keyboardType: keyboardType,
-          cursorColor: coreTextFieldCursorColor,
-          textInputAction: textInputAction,
-          inputFormatters: inputFormatters,
-          onChanged: onChanged,
-          // style: AppTextTheme.text16.copyWith(
-          //   fontSize: fontSize,
-          //   color: textColor ?? AppColors.appTextPrimaryColor,
-          // ),
-          decoration: InputDecoration(
-            isDense: true,
-            labelText: labelText,
-            hintText: hintText,
-            suffixIcon: suffixIcon,
-            hintStyle: AppTextTheme.text16.copyWith(
-              color: hintTextColor ?? secondaryTextColor,
-            ),
-            filled: true,
-            contentPadding: contentPadding ?? EdgeInsets.symmetric(horizontal: 16, vertical: prefixIcon == null && suffixIcon == null ? 12 : 8),
-            fillColor: fillColor ?? coreTextFieldBackgroundColor,
-            prefixIcon: prefixIcon != null
-                ? Icon(
-                    prefixIcon,
-                    size: prefixIconSize,
-                    color: prefixIconColor ?? coreTextFieldDefaultIconColor,
-                  )
-                : null,
-            suffixText: suffixText,
-            helperText: helperText,
-            errorBorder: errorBorder,
-            enabledBorder: enabledBorder,
-            focusedBorder: focusedBorder,
-            focusedErrorBorder: focusedErrorBorder,
-            // suffixStyle:
-            //     AppTextTheme.text18.copyWith(fontWeight: FontWeight.w600),
-            // helperStyle: AppTextTheme.text14
-            //     .copyWith(fontSize: 12, color: AppColors.primaryColor),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          titleText,
+          style: titleTextStyle ?? AppTextTheme.text16.copyWith(
+              color: primaryColor,
+              fontWeight: FontWeight.w600
           ),
         ),
-      ),
+        const SizedBox(
+          height: 2,
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Material(
+            elevation: 10,
+            shadowColor: coreTextFieldShadowColor,
+            surfaceTintColor: coreTextFieldShadowColor,
+            color: coreTextFieldBackgroundColor,
+            child: TextFormField(
+              onTap: onTap,
+              cursorHeight: 20,
+              autocorrect: false,
+              minLines: minLines,
+              readOnly: readOnly,
+              maxLines: maxLines,
+              focusNode: focusNode,
+              validator: validator,
+              controller: controller,
+              obscureText: obscureText,
+              onFieldSubmitted: onSubmit,
+              keyboardType: keyboardType,
+              cursorColor: coreTextFieldCursorColor,
+              textInputAction: textInputAction,
+              inputFormatters: inputFormatters,
+              onChanged: onChanged,
+              // style: AppTextTheme.text16.copyWith(
+              //   fontSize: fontSize,
+              //   color: textColor ?? AppColors.appTextPrimaryColor,
+              // ),
+              decoration: InputDecoration(
+                isDense: true,
+                labelText: labelText,
+                hintText: hintText,
+                suffixIcon: suffixIcon,
+                hintStyle: AppTextTheme.text16.copyWith(
+                  color: hintTextColor ?? secondaryTextColor,
+                ),
+                filled: true,
+                contentPadding: contentPadding ?? EdgeInsets.symmetric(horizontal: 16, vertical: prefixIcon == null && suffixIcon == null ? 12 : 8),
+                fillColor: fillColor ?? coreTextFieldBackgroundColor,
+                prefixIcon: prefixIcon != null
+                    ? Icon(
+                        prefixIcon,
+                        size: prefixIconSize,
+                        color: prefixIconColor ?? coreTextFieldDefaultIconColor,
+                      )
+                    : null,
+                suffixText: suffixText,
+                helperText: helperText,
+                errorBorder: errorBorder,
+                enabledBorder: enabledBorder,
+                focusedBorder: focusedBorder,
+                focusedErrorBorder: focusedErrorBorder,
+                // suffixStyle:
+                //     AppTextTheme.text18.copyWith(fontWeight: FontWeight.w600),
+                // helperStyle: AppTextTheme.text14
+                //     .copyWith(fontSize: 12, color: AppColors.primaryColor),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
