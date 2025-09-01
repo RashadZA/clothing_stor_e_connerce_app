@@ -22,6 +22,12 @@ class ForgotPasswordScreenController extends GetxController {
     Get.offNamed(Routes.signInScreen);
   }
 
+
+  /// Send button on pressed method
+  Future<void> sendButtonOnPressedMethod() async {
+    Get.offNamed(Routes.verifyCodeScreen);
+  }
+
   Future<void> close() async {}
 
   @override

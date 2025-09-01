@@ -1,6 +1,4 @@
 import 'package:clothing_stor_e_connerce_app/core/routes/app_pages.dart';
-import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class WelcomeScreenController extends GetxController{
@@ -39,7 +37,7 @@ class WelcomeScreenController extends GetxController{
   }
 
   Future<void> signInButtonOnPressedMethod() async {
-    Get.offAllNamed(Routes.onBoardingScreen);
+    Get.offAllNamed(Routes.signInScreen);
     update();
   }
 }

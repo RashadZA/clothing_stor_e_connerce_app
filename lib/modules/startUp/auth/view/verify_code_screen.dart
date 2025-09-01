@@ -1,14 +1,14 @@
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/core_button.dart';
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/icon_custom_button.dart';
-import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/forgot_password_screen_controller.dart';
 import 'package:clothing_stor_e_connerce_app/core/utils/design_utils.dart';
 import 'package:clothing_stor_e_connerce_app/core/components/widgets/buttons/core_flat_button.dart';
-import 'package:clothing_stor_e_connerce_app/core/components/widgets/core_text_field.dart';
+import 'package:clothing_stor_e_connerce_app/modules/startUp/auth/controller/verify_code_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-class ForgotPasswordScreen extends GetWidget<ForgotPasswordScreenController> {
-  const ForgotPasswordScreen({super.key});
+class VerifyCodeScreen extends GetWidget<VerifyCodeScreenController> {
+  const VerifyCodeScreen({super.key});
 
 
   @override
@@ -39,7 +39,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordScreenController> {
               ),
               Center(
                 child: Text(
-                  "Forgot Password",
+                  "Verify Code",
                   textAlign: TextAlign.center,
                   style: AppTextTheme.text24.copyWith(
                       color: primaryColor,
@@ -51,7 +51,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordScreenController> {
                 height: 10,
               ),
               Text(
-                "Please, enter your email address. You will receive a link to create a new password via email.",
+                "Please, enter the code we just sent to email",
                 textAlign: TextAlign.center,
                 style: AppTextTheme.text16.copyWith(
                   color: primaryColor,
@@ -59,24 +59,54 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordScreenController> {
                   overflow: TextOverflow.visible,
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
               Text(
-                "Email",
-                style: AppTextTheme.text18.copyWith(
-                    color: primaryColor,
-                    fontWeight: FontWeight.w600
+                "example@gmail.com",
+                textAlign: TextAlign.center,
+                style: AppTextTheme.text16.copyWith(
+                  color: blackColor,
+                  fontWeight: FontWeight.w400,
+                  overflow: TextOverflow.visible,
                 ),
               ),
               const SizedBox(
-                height: 2,
+                height: 10,
               ),
-              CoreTextField(
-                hintText: "Email",
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.done,
-                controller: controller.emailTextEditController,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0,vertical: 20,),
+                child: PinCodeTextField(
+                  appContext: Get.context!,
+                  length: 4,
+                  obscureText: false,
+                  animationType: AnimationType.fade,
+                  pinTheme: PinTheme(
+                    shape: PinCodeFieldShape.circle,
+                    borderRadius: BorderRadius.circular(50),
+                    fieldHeight: 50,
+                    fieldWidth: 50,
+                    activeFillColor: Colors.transparent,
+                    activeColor: primaryColor,
+                    selectedColor: primaryColor.withValues(alpha: 2),
+                    selectedFillColor: primaryColor.withValues(alpha: 0.5),
+                    inactiveColor: secondaryColor,
+                    inactiveFillColor: secondaryColor.withValues(alpha: 0.5),
+                    // shape: PinCodeFieldShape.box,
+                    // borderRadius: BorderRadius.circular(25),
+                    // fieldHeight: 50,
+                    // fieldWidth: 50,
+                    // activeFillColor: Colors.white,
+                    // activeColor: Colors.blue,
+                    // selectedColor: Colors.blue,
+                    // inactiveColor: Colors.grey,
+                  ),
+                  animationDuration: Duration(milliseconds: 300),
+                  controller: controller.verifyCodeFieldTextEditController,
+                  onCompleted: (v) {
+                    controller.verifyCode(v);
+                  },
+                  onChanged: (value) {
+                    controller.onPinChanged(value);
+                  },
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -104,7 +134,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordScreenController> {
                 height: 15,
               ),
               CoreFlatButton(
-                onPressed: () => controller.sendButtonOnPressedMethod(),
+                onPressed: () => Get.back(),
                 text: "SEND",
                 isGradientBg: true,
               ),
